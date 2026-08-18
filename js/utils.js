@@ -1,8 +1,14 @@
+// Generic helpers come from the DOM Kit (js/neorgon-dom.js, vendored from
+// packages/neorgon-ui/dom/). They are re-exported so every existing
+// `import { escHtml } from './utils.js'` keeps working.
+//
+// Do not edit js/neorgon-dom.js. Edit the canonical source and run
+// packages/neorgon-ui/sync-dom.sh.
+import { escHtml } from './neorgon-dom.js';
+export { escHtml };
+
 const ESCAPES = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
 
-export function escHtml(str) {
-  return String(str).replace(/[&<>"']/g, c => ESCAPES[c]);
-}
 
 export function inline(str) {
   return escHtml(str)
